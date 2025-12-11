@@ -1,59 +1,235 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏎️ Club RC Clospalacios - Web Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Plataforma web moderna para la gestión y promoción del Club RC Clospalacios
 
-## About Laravel
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-12.0-red.svg)
+![PHP](https://img.shields.io/badge/PHP-8.2+-purple.svg)
+![Status](https://img.shields.io/badge/status-Active-success.svg)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Descripción
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Plataforma web completa para el Club Roberto Clospalacios de vehículos de radiocontrol (RC). Permite a los usuarios registrarse, autenticarse y acceder a un panel personalizado con información sobre competiciones, entrenamientos y eventos del club.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✨ Características Principales
 
-## Learning Laravel
+- 🔐 **Sistema de Autenticación Completo**
+  - Registro de nuevos usuarios
+  - Login seguro con validación
+  - Logout con destrucción de sesión
+  - Regeneración de tokens CSRF
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- 🎨 **Diseño Moderno y Responsivo**
+  - Tema claro y profesional
+  - Interfaz amigable
+  - Totalmente responsive (móvil, tablet, desktop)
+  - Animaciones suaves
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🎯 **Secciones Principales**
+  - Página de bienvenida con información del club
+  - Dashboard para usuarios autenticados
+  - Formularios de login y registro
+  - Galería de eventos y competiciones
 
-## Laravel Sponsors
+- 🏆 **Gestión de Usuarios**
+  - Perfiles de usuario
+  - Historial de competiciones
+  - Badges y reconocimientos
+  - Panel de control personalizado
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🚀 Inicio Rápido
 
-### Premium Partners
+### Requisitos Previos
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **PHP** 8.2 o superior
+- **Composer** (gestor de dependencias de PHP)
+- **Node.js** y **npm** (para compilar assets)
+- **Base de datos** (SQLite, MySQL o PostgreSQL)
 
-## Contributing
+### Instalación
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/gh00sted/webClubRC.git
+cd webClubRC
+```
 
-## Code of Conduct
+2. **Instalar dependencias de PHP**
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. **Instalar dependencias de Node.js**
+```bash
+npm install
+```
 
-## Security Vulnerabilities
+4. **Configurar variables de entorno**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. **Crear base de datos y ejecutar migraciones**
+```bash
+php artisan migrate
+```
 
-## License
+6. **Compilar assets con Vite**
+```bash
+npm run build
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. **Iniciar el servidor de desarrollo**
+```bash
+php artisan serve
+```
+
+Accede a: `http://localhost:8000`
+
+## 📦 Estructura del Proyecto
+
+```
+webClubRC/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── AuthController.php      # Control de autenticación
+│   └── Models/
+│       └── User.php                    # Modelo de usuario
+├── resources/
+│   ├── css/
+│   │   ├── welcome.css                 # Estilos de bienvenida
+│   │   └── auth.css                    # Estilos de autenticación
+│   ├── views/
+│   │   ├── welcome.blade.php           # Página de inicio
+│   │   ├── dashboard.blade.php         # Panel de usuario
+│   │   └── auth/
+│   │       ├── login.blade.php         # Formulario de login
+│   │       └── register.blade.php      # Formulario de registro
+│   └── js/
+│       └── app.js                      # JavaScript de la app
+├── routes/
+│   └── web.php                         # Rutas de la aplicación
+├── public/
+│   ├── img/
+│   │   ├── logo_club.png               # Logo del club
+│   │   └── logo_evento.png             # Logo del evento
+│   └── build/                          # Assets compilados
+└── database/
+    ├── migrations/                     # Migraciones de BD
+    └── seeders/                        # Seeders de datos
+```
+
+## 🎨 Paleta de Colores
+
+```
+Primary Yellow:  #feb236
+Primary Red:     #d64161
+Primary Blue:    #27A3F5
+Light Background: #ffffff
+Dark Text:       #1a1a1a
+Gray Text:       #666666
+```
+
+## 🔑 Rutas Principales
+
+| Ruta | Método | Descripción |
+|------|--------|-------------|
+| `/` | GET | Página de inicio |
+| `/login` | GET/POST | Formulario de login |
+| `/register` | GET/POST | Formulario de registro |
+| `/dashboard` | GET | Panel del usuario (protegido) |
+| `/logout` | POST | Cerrar sesión |
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Backend**: Laravel 12
+- **Frontend**: Blade, CSS3, JavaScript (Vanilla)
+- **Build Tool**: Vite
+- **Base de Datos**: SQLite/MySQL/PostgreSQL
+- **Validación**: Laravel Validator
+- **Autenticación**: Laravel Auth Facade
+
+## 📝 Variables de Entorno
+
+```env
+APP_NAME=Club RC Clospalacios
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+```
+
+## 🔒 Seguridad
+
+- ✅ Protección CSRF en todos los formularios
+- ✅ Hashing de contraseñas con bcrypt
+- ✅ Validación de datos en servidor
+- ✅ Regeneración de tokens de sesión
+- ✅ Middleware de autenticación
+
+## 💻 Desarrollo
+
+### Modo Watch (desarrollo)
+```bash
+npm run dev
+```
+
+### Compilación Producción
+```bash
+npm run build
+```
+
+### Ejecutar Tests
+```bash
+php artisan test
+```
+
+## 📱 Responsive Design
+
+La plataforma se adapta automáticamente a:
+- 📱 Móviles (480px+)
+- 📱 Tablets (768px+)
+- 🖥️ Escritorio (1024px+)
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Para cambios mayores, abre un issue primero para discutir los cambios propuestos.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👥 Autor
+
+- **Desarrollador**: @gh00sted
+- **Organización**: Club RC Clospalacios
+
+## 📞 Contacto & Soporte
+
+Para reportar bugs o sugerencias, abre un [issue en GitHub](https://github.com/gh00sted/webClubRC/issues)
+
+## 🗺️ Roadmap
+
+- [ ] Sistema de competiciones
+- [ ] Galería de fotos
+- [ ] Sistema de calificaciones
+- [ ] Notificaciones en tiempo real
+- [ ] API REST
+- [ ] Panel administrativo
+- [ ] Integración con redes sociales
+
+---
+
+<div align="center">
+
+**¡Bienvenido al Club RC Clospalacios!**
+
+Haz que tu pasión por los vehículos RC sea parte de una comunidad increíble.
+
+[🌐 Visita el sitio web](http://localhost:8000) • [⭐ Stars](https://github.com/gh00sted/webClubRC) • [🐛 Reportar Bug](https://github.com/gh00sted/webClubRC/issues)
+
+</div>
