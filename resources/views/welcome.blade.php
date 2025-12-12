@@ -5,52 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Club RC Clospalacios - Bienvenido</title>
     @vite(['resources/css/welcome.css'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="top-left">
+                <span><i class="fas fa-headset"></i> Ayuda de uso</span>
+                <span><i class="fas fa-phone"></i> +34 664 34 56 33</span>
+            </div>
+            <div class="top-right">
+                <span>Regístrate y únete a la comunidad</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="{{ asset('img/logo_club.png') }}" alt="Club RC Clospalacios" style="height: 40px; margin-right: 10px; vertical-align: middle;">
-            Club RC Los Palacios
-        </div>
-        <div class="nav-links">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}">Dashboard</a>
-                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                        @csrf
-                        <button type="submit" class="btn-primary">Cerrar Sesión</button>
-                    </form>
-                @else
-                    <a href="{{ route('login') }}">Iniciar Sesión</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Registrarse</a>
-                    @endif
-                @endauth
-            @endif
+        <div class="navbar-content">
+            <div class="logo">
+                <img src="{{ asset('img/logo_club.png') }}" alt="Club RC Clospalacios" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                Club RC Clospalacios
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> INICIO</a>
+                <a href="#" class="nav-link"><i class="fas fa-trophy"></i> COMPETICIONES</a>
+                <a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Sobre nosotros</a>
+            </div>
+            <div class="nav-links">
+                @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn-primary">Cerrar Sesión</button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn-primary"><i class="fas fa-user-plus"></i> Regístrate</a>
+                        @endif
+                    @endauth
+                @endif
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Bienvenido al <span>Club RC</span></h1>
-            <p>Somos una comunidad apasionada por los vehículos de radiocontrol. Únete a nosotros para disfrutar de competiciones emocionantes, entrenamientos intensivos y una familia que comparte tu pasión.</p>
-            <div class="hero-buttons">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="btn-primary">Ir al Panel</a>
-                @else
-                    <a href="{{ route('login') }}" class="btn-primary">Iniciar Sesión</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn-secondary">Crear Cuenta</a>
-                    @endif
-                @endauth
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-card">
-                <img src="{{ asset('img/logo_evento.png') }}" alt="Evento del año" style="width: 100%; height: 100%; object-fit: contain; padding: 20px;">
-            </div>
+            <h1>¡Bienvenido a Club RC Clospalacios!</h1>
+            <p>La comunidad de vehículos de radiocontrol más apasionante</p>
         </div>
     </section>
 
@@ -66,7 +73,7 @@
                         </svg>
                     </div>
                     <h3>Competiciones</h3>
-                    <p>Participa en emocionantes carreras y competiciones contra otros miembros del club. Demuestra tus habilidades y gana increíbles premios.</p>
+                    <p>Participa en emocionantes carreras y competiciones contra otros miembros del club.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -78,7 +85,7 @@
                         </svg>
                     </div>
                     <h3>Comunidad</h3>
-                    <p>Conoce a personas que comparten tu pasión por los vehículos RC. Crea amistades duraderas dentro de una comunidad vibrante.</p>
+                    <p>Conoce a personas que comparten tu pasión por los vehículos RC.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -89,7 +96,7 @@
                         </svg>
                     </div>
                     <h3>Entrenamientos</h3>
-                    <p>Mejora tus habilidades con sesiones de entrenamiento profesional y tutoría personalizada de expertos en RC.</p>
+                    <p>Mejora tus habilidades con sesiones de entrenamiento profesional.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -100,7 +107,7 @@
                         </svg>
                     </div>
                     <h3>Eventos Exclusivos</h3>
-                    <p>Acceso a eventos especiales, showrooms y experiencias que solo están disponibles para miembros del club.</p>
+                    <p>Acceso a eventos especiales y experiencias únicas.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -109,7 +116,7 @@
                         </svg>
                     </div>
                     <h3>Recursos</h3>
-                    <p>Biblioteca de tutoriales, guías técnicas y contenido exclusivo para llevar tu hobby al siguiente nivel.</p>
+                    <p>Biblioteca de tutoriales y contenido exclusivo.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -118,7 +125,7 @@
                         </svg>
                     </div>
                     <h3>Reconocimiento</h3>
-                    <p>Sé reconocido por tus logros y obtén badges exclusivos que demuestren tu dedicación al club.</p>
+                    <p>Sé reconocido por tus logros y obtén badges exclusivos.</p>
                 </div>
             </div>
         </div>
@@ -127,7 +134,7 @@
     <!-- CTA Section -->
     <section class="cta">
         <h2>¿Listo para comenzar tu aventura RC?</h2>
-        <p>Únete hoy a nuestra comunidad y descubre un mundo de posibilidades con los vehículos de radiocontrol.</p>
+        <p>Únete hoy a nuestra comunidad y descubre un mundo de posibilidades</p>
         @guest
             <a href="{{ route('register') }}" class="btn-primary">Registrarse Ahora</a>
         @endguest
@@ -135,7 +142,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Club Roberto Clospalacios. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Club Roberto Clospalacios. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
